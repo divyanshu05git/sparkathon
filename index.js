@@ -12,6 +12,7 @@ const { returnRouter } = require('./routes/return')
 
 app.use("/user",userRouter)
 app.use("/return",returnRouter)
+app.use("/user", buyRouter)
 
 
 async function main(){
