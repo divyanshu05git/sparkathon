@@ -7,6 +7,7 @@ const customerSchema=new Schema({
     name:String,
     phone_no:String,
     createdDate:Date,
+    password:String
     
 })
 

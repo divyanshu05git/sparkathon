@@ -10,7 +10,6 @@ app.use(express.json())
 const {userRouter} =require("./routes/user")
 
 app.use("/user",userRouter)
-app.use("/admin",adminRouter)
 
 
 async function main(){
