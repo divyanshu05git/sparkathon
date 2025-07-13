@@ -37,6 +37,6 @@ const fraudFlagSchema=new Schema({
 module.exports={
     Customer: mongoose.model('customers', customerSchema),
     Order: mongoose.model('orders', ordersSchema),
-    Return: mongoose.model('returns', returnSchema),
+    Returns: mongoose.model('returns', returnSchema),
     FraudSummary: mongoose.model('finalfraudsummary', fraudFlagSchema),
 }

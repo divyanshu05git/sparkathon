@@ -4,5 +4,39 @@ const {z}=require("zod")
 const jwt=require("jsonwebtoken")
 const {JWT_SECRET} =require("../config")
 
-const {Customer,Order,Return,FraudSummary}=require("../db")
-// const { userAuth } = require("../middlewares/userMiddleware")
+const {Customer,Order,Returns,FraudSummary}=require("../db")
+const { userAuth } = require("../middlewares/userMiddleware")//
+
+const returnRouter=Router();
+
+returnRouter.post('/',async(req,res)=>{
+    const {order_id,reason}=req.body;
+    const userId=req.user.id;
+
+    if(!product_id){
+        return res.status(400).json({
+            message:"product not found"
+        })
+    }
+
+    try{
+        const newReturn=await Returns.create({
+            custid:userId,
+            order_id:order_id
+        })
+        res.status(201).json({
+        message: "Item has been returned ",
+        return: newReturn
+    });
+    }
+    catch(err){
+        res.status(500).json({
+        message:"Error returning item",
+        error: err.message
+        });
+    }
+})
+
+module.exports={
+    returnRouter;
+}
