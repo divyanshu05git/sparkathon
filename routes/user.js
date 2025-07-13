@@ -5,7 +5,7 @@ const jwt=require("jsonwebtoken")
 const {JWT_SECRET} =require("../config")
 
 const {Customer,Order,Return,FraudSummary}=require("../db")
-// const { userAuth } = require("../middlewares/userMiddleware")
+const { userAuth } = require("../middlewares/userMiddleware")
 
 const userRouter=Router();
 userRouter.post("/signup",async(req,res)=>{
