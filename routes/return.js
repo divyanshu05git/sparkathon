@@ -9,7 +9,7 @@ const { userAuth } = require("../middlewares/userMiddleware")//
 
 const returnRouter=Router();
 
-returnRouter.post('/',async(req,res)=>{
+returnRouter.post('/',userAuth,async(req,res)=>{
     const {order_id,reason}=req.body;
     const userId=req.user.id;
 
